@@ -1,4 +1,4 @@
-# 📧 Enterprise Linux Email Server Deployment
+# Enterprise Linux Email Server Deployment
 
 <p align="center">
   <img src="https://img.shields.io/badge/OS-Ubuntu%20Server%2024.04%20LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" />
@@ -8,11 +8,11 @@
   <img src="https://img.shields.io/badge/Platform-VMware-607078?style=for-the-badge&logo=vmware&logoColor=white" />
 </p>
 
-> 🖥️ End-to-end deployment and configuration of an enterprise email server on Ubuntu Server 24.04 LTS using Citadel Groupware — including DNS/MX record configuration, UFW firewall rules, Webmin administration, DHCP reservations, user management, and full email service testing.
+> End-to-end deployment and configuration of an enterprise email server on Ubuntu Server 24.04 LTS using Citadel Groupware — including DNS/MX record configuration, UFW firewall rules, Webmin administration, DHCP reservations, user management, and full email service testing.
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project demonstrates the complete lifecycle of deploying an **enterprise-grade email infrastructure** in a virtualized environment. It simulates a real-world organizational mail system for the **ACME.EDU** domain — from initial Ubuntu Server setup through DNS configuration, mail server installation, firewall hardening, and end-to-end email testing.
 
@@ -20,7 +20,7 @@ This project demonstrates the complete lifecycle of deploying an **enterprise-gr
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 [VMware Workstation]
@@ -44,29 +44,29 @@ This project demonstrates the complete lifecycle of deploying an **enterprise-gr
 
 ---
 
-## 🛠️ Technologies Implemented
+## Technologies Implemented
 
-### 🐧 Server & OS
+### Server & OS
 - **Ubuntu Server 24.04 LTS** — base OS with static IP configuration
 - **VMware Workstation** — virtualization platform
 
-### 📬 Email Services
+### Email Services
 - **Citadel Groupware Server** — full-featured enterprise mail server (SMTP, IMAP, webmail)
 - **WebCit** — Citadel's web-based mail client interface
 - **Usermin** — user-level web-based mail access
 
-### 🌐 Network Services
+### Network Services
 - **DNS** — forward/reverse lookup zones, MX records, PTR/CNAME/A records
 - **DHCP Reservation** — static IP assignment for email server (`192.168.4.35`)
 - **UFW Firewall** — port-based access control
 
-### ⚙️ Administration
+### Administration
 - **Webmin** — web-based Linux server administration (Port 10000)
 - **Bash/CLI** — package installation, service configuration, network setup
 
 ---
 
-## 📋 Implementation Steps
+## Implementation Steps
 
 | Step | Task | Details |
 |------|------|---------|
@@ -82,20 +82,20 @@ This project demonstrates the complete lifecycle of deploying an **enterprise-gr
 
 ---
 
-## 🔒 Firewall Configuration
+## Firewall Configuration
 
 | Service | Port | Protocol | Status |
 |---------|------|----------|--------|
-| SSH | 22 | TCP | ✅ Allowed |
-| SMTP | 25 | TCP | ✅ Allowed |
-| HTTP | 80 | TCP | ✅ Allowed |
-| HTTPS | 443 | TCP | ✅ Allowed |
-| Citadel | 504 | TCP | ✅ Allowed |
-| Webmin | 10000 | TCP | ✅ Allowed |
+| SSH | 22 | TCP | Allowed |
+| SMTP | 25 | TCP | Allowed |
+| HTTP | 80 | TCP | Allowed |
+| HTTPS | 443 | TCP | Allowed |
+| Citadel | 504 | TCP | Allowed |
+| Webmin | 10000 | TCP | Allowed |
 
 ---
 
-## 👥 User Accounts Created & Tested
+## User Accounts Created & Tested
 
 | Username | Role |
 |----------|------|
@@ -108,35 +108,35 @@ This project demonstrates the complete lifecycle of deploying an **enterprise-gr
 
 ---
 
-## ✅ Testing & Verification
+## Testing & Verification
 
-- ✅ Email transmission between internal users verified
-- ✅ Mailbox delivery confirmed via WebCit webmail
-- ✅ Reply and forwarding functionality tested
-- ✅ Webmin admin portal accessible on port 10000
-- ✅ Usermin accessible for end-user mailbox management
-- ✅ DNS MX record resolution verified
-- ✅ Firewall rules confirmed — only required ports open
+- Email transmission between internal users verified
+- Mailbox delivery confirmed via WebCit webmail
+- Reply and forwarding functionality tested
+- Webmin admin portal accessible on port 10000
+- Usermin accessible for end-user mailbox management
+- DNS MX record resolution verified
+- Firewall rules confirmed — only required ports open
 
 ---
 
-## 📁 Repository Contents
+## Repository Contents
 
 ```
-📦 Linux-email-server-deployment
+Linux-email-server-deployment
 ├── 📄 README.md
 └── 📋 E-mail Server Installation and Setup instructions-KHS.pdf
 ```
 
 ---
 
-## 🧠 Skills Demonstrated
+## Skills Demonstrated
 
 `Ubuntu Server` `Linux Administration` `Citadel Groupware` `Webmin` `DNS Configuration` `MX Records` `UFW Firewall` `DHCP Reservations` `Email Infrastructure` `SMTP` `User Management` `VMware` `Network Services` `System Administration`
 
 ---
 
-## 💡 Real-World Relevance
+## Real-World Relevance
 
 Enterprise email infrastructure is a core component of organizational IT. This project demonstrates skills applicable to:
 - **Linux System Administrator** roles — Ubuntu server deployment, service configuration
@@ -146,13 +146,13 @@ Enterprise email infrastructure is a core component of organizational IT. This p
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This project was deployed in a controlled VMware virtualization environment for academic and educational purposes. All domain names, usernames, and IP addresses are fictitious.
 
 ---
 
-## 👤 Author
+## Author
 
 **Hashan Kodippilige**  
 M.S. Cybersecurity — Minnesota State University Moorhead  
