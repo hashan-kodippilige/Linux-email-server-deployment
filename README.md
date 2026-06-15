@@ -1,223 +1,161 @@
-# Linux Email Server Deployment
+# 📧 Enterprise Linux Email Server Deployment
 
-## Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/OS-Ubuntu%20Server%2024.04%20LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" />
+  <img src="https://img.shields.io/badge/Mail%20Server-Citadel%20Groupware-4B4B4B?style=for-the-badge&logo=linux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Admin-Webmin-0078D4?style=for-the-badge&logo=webmin&logoColor=white" />
+  <img src="https://img.shields.io/badge/Firewall-UFW-E22C2C?style=for-the-badge&logo=linux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-VMware-607078?style=for-the-badge&logo=vmware&logoColor=white" />
+</p>
 
-This project demonstrates the complete deployment and configuration of an enterprise email server using Ubuntu Server, Citadel Groupware, and Webmin.
-
-The environment includes DNS configuration, DHCP reservations, firewall management, mail server deployment, web-based administration, user account creation, and email service testing.
-
-The project was completed in a virtualized environment and simulates a real-world organizational email infrastructure.
-
----
-
-## Project Objectives
-
-- Deploy Ubuntu Server
-- Configure DNS services
-- Create mail exchange (MX) records
-- Install and configure Webmin
-- Deploy Citadel Email Server
-- Configure firewall security rules
-- Create user accounts
-- Test email communication
-- Verify mail delivery and messaging functionality
+> 🖥️ End-to-end deployment and configuration of an enterprise email server on Ubuntu Server 24.04 LTS using Citadel Groupware — including DNS/MX record configuration, UFW firewall rules, Webmin administration, DHCP reservations, user management, and full email service testing.
 
 ---
 
-## Technologies Used
+## 📌 Overview
 
-### Operating System
-- Ubuntu Server 24.04 LTS
+This project demonstrates the complete lifecycle of deploying an **enterprise-grade email infrastructure** in a virtualized environment. It simulates a real-world organizational mail system for the **ACME.EDU** domain — from initial Ubuntu Server setup through DNS configuration, mail server installation, firewall hardening, and end-to-end email testing.
 
-### Administration Tools
-- Webmin
-- Usermin
-
-### Email Services
-- Citadel Groupware Server
-- WebCit Web Interface
-
-### Networking Services
-- DNS
-- DHCP
-- Firewall (UFW)
-
-### Virtualization
-- VMware Workstation
+**Environment:** VMware Workstation | Ubuntu Server 24.04 LTS | Domain: `ACME.EDU`
 
 ---
 
-## Key Skills Demonstrated
+## 🏗️ System Architecture
 
-✔ Linux Server Administration
-
-✔ Ubuntu Server Deployment
-
-✔ DNS Configuration
-
-✔ MX Record Configuration
-
-✔ DHCP Reservations
-
-✔ Webmin Administration
-
-✔ Citadel Mail Server Deployment
-
-✔ Firewall Management
-
-✔ User Account Administration
-
-✔ Email Infrastructure Management
-
-✔ Network Services Configuration
-
-✔ System Troubleshooting
-
----
-
-## Project Architecture
-
-### Domain Structure
-
-```text
-ACME.EDU
-│
-├── DNS Server
-│
-├── MX Record
-│   └── AcmePCEm01.ACME.EDU
-│
-├── Email Server
-│   └── Ubuntu Server 24.04
-│
-├── Webmin Management
-│   └── Port 10000
-│
-└── Citadel Mail Services
-    ├── SMTP (25)
-    ├── HTTP (80)
-    ├── HTTPS (443)
-    └── Citadel Service (504)
+```
+[VMware Workstation]
+        │
+        ├── DNS Server (Windows Server)
+        │     ├── Forward Lookup Zone: ACME.EDU
+        │     ├── MX Record → AcmePCEm01.ACME.EDU
+        │     ├── Host (A) Record: AcmePCEm01 → 192.168.4.35
+        │     └── PTR Record (Reverse Lookup)
+        │
+        └── Ubuntu Email Server (AcmePCEm01)
+              ├── Static IP: 192.168.4.35
+              ├── Webmin → Port 10000
+              ├── Citadel Mail Server
+              │     ├── SMTP → Port 25
+              │     ├── HTTP → Port 80
+              │     ├── HTTPS → Port 443
+              │     └── Citadel → Port 504
+              └── UFW Firewall
 ```
 
 ---
 
-## Project Tasks
+## 🛠️ Technologies Implemented
 
-### 1. DNS Configuration
+### 🐧 Server & OS
+- **Ubuntu Server 24.04 LTS** — base OS with static IP configuration
+- **VMware Workstation** — virtualization platform
 
-Configured:
+### 📬 Email Services
+- **Citadel Groupware Server** — full-featured enterprise mail server (SMTP, IMAP, webmail)
+- **WebCit** — Citadel's web-based mail client interface
+- **Usermin** — user-level web-based mail access
 
-- Forward Lookup Zones
-- Reverse Lookup Zones
-- Host Records
-- MX Records
-- PTR Records
-- CNAME Records
+### 🌐 Network Services
+- **DNS** — forward/reverse lookup zones, MX records, PTR/CNAME/A records
+- **DHCP Reservation** — static IP assignment for email server (`192.168.4.35`)
+- **UFW Firewall** — port-based access control
 
-### 2. Ubuntu Server Installation
+### ⚙️ Administration
+- **Webmin** — web-based Linux server administration (Port 10000)
+- **Bash/CLI** — package installation, service configuration, network setup
 
-Configured:
+---
 
-- Static IP Addressing
-- DNS Settings
-- Gateway Configuration
-- Root Account Access
+## 📋 Implementation Steps
 
-### 3. Webmin Deployment
+| Step | Task | Details |
+|------|------|---------|
+| 1 | DNS Configuration | Forward/reverse zones, MX record, A/PTR/CNAME records |
+| 2 | Ubuntu Server Setup | Static IP, DNS settings, gateway, root access |
+| 3 | Webmin Installation | Web-based admin portal on port 10000 |
+| 4 | Usermin Installation | User-level web mail access |
+| 5 | Citadel Installation | Full mail server with SMTP, webmail, auth |
+| 6 | UFW Firewall Rules | Allow SSH, SMTP, HTTP, HTTPS, Citadel, Webmin |
+| 7 | DHCP Reservation | Static address binding for email server |
+| 8 | User Account Creation | Multiple mailbox users created and tested |
+| 9 | Email Testing | Transmission, delivery, reply, and webmail verification |
 
-Installed and configured:
+---
 
-- Webmin
-- Usermin
-- Remote Web Administration
+## 🔒 Firewall Configuration
 
-### 4. Citadel Mail Server Installation
+| Service | Port | Protocol | Status |
+|---------|------|----------|--------|
+| SSH | 22 | TCP | ✅ Allowed |
+| SMTP | 25 | TCP | ✅ Allowed |
+| HTTP | 80 | TCP | ✅ Allowed |
+| HTTPS | 443 | TCP | ✅ Allowed |
+| Citadel | 504 | TCP | ✅ Allowed |
+| Webmin | 10000 | TCP | ✅ Allowed |
 
-Configured:
+---
 
-- SMTP Services
-- WebMail Access
-- Authentication Settings
-- User Mailboxes
+## 👥 User Accounts Created & Tested
 
-### 5. Firewall Configuration
-
-Allowed services:
-
-| Service | Port |
+| Username | Role |
 |----------|------|
-| SSH | 22 |
-| SMTP | 25 |
-| HTTP | 80 |
-| HTTPS | 443 |
-| Citadel | 504 |
-| Webmin | 10000 |
+| MMcMann | Staff |
+| CWilkers | Staff |
+| CChristi | Staff |
+| JAwsome | Staff |
+| SecTest | Security Testing |
+| HKodippilige | Administrator |
 
-### 6. DHCP Reservation
+---
 
-Created DHCP reservation for:
+## ✅ Testing & Verification
 
-```text
-192.168.4.35
+- ✅ Email transmission between internal users verified
+- ✅ Mailbox delivery confirmed via WebCit webmail
+- ✅ Reply and forwarding functionality tested
+- ✅ Webmin admin portal accessible on port 10000
+- ✅ Usermin accessible for end-user mailbox management
+- ✅ DNS MX record resolution verified
+- ✅ Firewall rules confirmed — only required ports open
+
+---
+
+## 📁 Repository Contents
+
 ```
-
-### 7. User Management
-
-Created multiple user accounts including:
-
-- MMcMann
-- CWilkers
-- CChristi
-- JAwsome
-- SecTest
-- HKodippilige
-
-### 8. Testing
-
-Performed:
-
-- Email transmission testing
-- Mailbox verification
-- Reply testing
-- Internal messaging validation
-- Webmail access testing
-
----
-
-## Learning Outcomes
-
-Through this project I gained experience in:
-
-- Enterprise Email Infrastructure
-- Linux Server Administration
-- DNS and Mail Routing
-- Firewall Security Configuration
-- Web-Based Server Administration
-- Virtualized Infrastructure Deployment
-- User Account Management
-- Email System Testing
-
----
-
-## Repository Structure
-
-```text
-README.md
-
-Email-Server-Installation.pdf
-
-screenshots/
-configuration-files/
-network-diagrams/
+📦 Linux-email-server-deployment
+├── 📄 README.md
+└── 📋 E-mail Server Installation and Setup instructions-KHS.pdf
 ```
 
 ---
 
-## Author
+## 🧠 Skills Demonstrated
 
-Hashan Kodippilige
-Master of Science in Cybersecurity
-Minnesota State University Moorhead
+`Ubuntu Server` `Linux Administration` `Citadel Groupware` `Webmin` `DNS Configuration` `MX Records` `UFW Firewall` `DHCP Reservations` `Email Infrastructure` `SMTP` `User Management` `VMware` `Network Services` `System Administration`
 
-Cybersecurity | Linux Administration | Splunk | System Administration | Network Security
+---
+
+## 💡 Real-World Relevance
+
+Enterprise email infrastructure is a core component of organizational IT. This project demonstrates skills applicable to:
+- **Linux System Administrator** roles — Ubuntu server deployment, service configuration
+- **IT Infrastructure Engineer** roles — DNS, DHCP, firewall, mail server setup
+- **Security Engineer** roles — firewall hardening, secure service configuration
+- **PhD Research** — server-side security configuration, protocol analysis environments
+
+---
+
+## ⚠️ Disclaimer
+
+This project was deployed in a controlled VMware virtualization environment for academic and educational purposes. All domain names, usernames, and IP addresses are fictitious.
+
+---
+
+## 👤 Author
+
+**Hashan Kodippilige**  
+M.S. Cybersecurity — Minnesota State University Moorhead  
+📧 hashansharindu@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/hashankodippilige/)  
+🐙 [GitHub](https://github.com/hashan-kodippilige)
